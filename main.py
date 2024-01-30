@@ -65,7 +65,7 @@ elif project_identifier == 'P3B':
 #---------------------------------------------------------------------------------
 import random
 #function that determines if a new dispensed material is the same kind as the materials on the q_bot
-def group(container_info):#Wahhaj
+def group(container_info):
     global i_d
     i_d=container_info[2]    #i_d is a variable containing the bin destination info
     i_d_array.append(i_d)
@@ -75,7 +75,7 @@ def group(container_info):#Wahhaj
     
   
 # function that determines if the maximum mass has been loaded   
-def mass(container_info):#Wahhaj
+def mass(container_info):
     mass=container_info[1]   # mass is a variable that takes on the mass of a material
     mass= int(mass)          
     mass_array.append(mass) 
@@ -96,7 +96,7 @@ def number_of_items_on_q_bot(container_info):#Wahhaj
         return True          # if the length of the list is longer than 3, returns True
 
 # dispenses a random container until conditions are met
-def dispense_container():#Filip                       
+def dispense_container():                     
     global mass_array        # initializing lists used in previous functions, global used because called in functions later
     mass_array=[]            
     global number_of_items_on_q_bot_array
@@ -117,7 +117,7 @@ def dispense_container():#Filip
     print("Qbot Going To",(i_d_array[0]))  
     
 
-def q_arm_load_container():#Filip 
+def q_arm_load_container():
                              
     arm.move_arm(0.66, 0.0, 0.28) #arm moves to the location of the dispensed
     time.sleep(2)                        
@@ -151,7 +151,7 @@ def q_arm_load_container():#Filip
         arm.home()
     print("contianer Loaded")
 
-def Transfer_Container():#Filip 
+def Transfer_Container():
     bot.activate_color_sensor()
     if i_d_array[0] == "Bin01":                 #determines which bin to go to 
         color_destination_bin = [1, 0, 0]
@@ -200,7 +200,7 @@ def dump():#Wahhaj
     time.sleep(2)
 
  
-def return_home():#Wahhaj
+def return_home():
     #loop for line following
     while True:
         #individual detecting for left and right side
@@ -245,7 +245,7 @@ def return_home():#Wahhaj
     print("returned HOME")
 
 # function that call on all other functions and completes the recycling 
-def recycle_material():#Filip 
+def recycle_material():
     global i_d_array
     i_d_array = []
     while True:                  # infinite loop that continuously recycles 
